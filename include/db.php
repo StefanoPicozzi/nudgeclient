@@ -37,7 +37,7 @@ if (! empty($client_gear_name) ) {
   define('DB_NAME', '');
 
 } 
-else if (! empty($ysql_service_host) ) {
+else if (! empty($mysql_service_host) ) {
 
   define('DB_HOST', getenv("MYSQL_SERVICE_HOST"));
   define('DB_PORT', getenv("MYSQL_SERVICE_PORT"));
