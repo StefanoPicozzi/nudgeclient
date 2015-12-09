@@ -7,7 +7,10 @@ define('DB_USER', '');
 define('DB_PASS', '');
   
 define('CLIENT_GEAR_NAME', getenv('OPENSHIFT_GEAR_NAME'));
+define('MSQL_SERVICE_HOST', getenv('MYSQL_SERVICE_HOST'));
+
 $client_gear_name = CLIENT_GEAR_NAME;
+$mysql_service_host = MSQL_SERVICE_HOST;
 
 if (! empty($client_gear_name) ) {
   
@@ -33,6 +36,15 @@ if (! empty($client_gear_name) ) {
   #define('DB_NAME', 'nudgedb');
   define('DB_NAME', '');
 
+} 
+else if (! empty($ysql_service_host) ) {
+
+  define('DB_HOST', getenv("MYSQL_SERVICE_HOST"));
+  define('DB_PORT', getenv("MYSQL_SERVICE_PORT"));
+  define('DB_USER', getenv("DATABASE_USER"));
+  define('DB_NAME', getenv("DATABASE_NAME"));
+  define('DB_PASS', getenv("DATABASE_PASSWORD"));
+  
 }
 
 /*** connect to database ***/
@@ -53,7 +65,7 @@ if (empty($mysql_username)) {
 /*** mysql password ***/
 $mysql_port = DB_PORT;
 if (empty($mysql_port)) {
-   $mysql_port = '3306';
+   $mysql_port = '3307';
    #$mysql_port = '53396';
    #$mysql_port = '44871';
 }
